@@ -18,7 +18,7 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale', 'account', 'website', 'sale_management'],
+    'depends': ['base', 'sale', 'account', 'website', 'sale_management','orderfaz_product'],
 
     # always loaded
     'data': [
@@ -26,7 +26,7 @@ Long description of module's purpose
         'views/sale_order_views.xml',
         'views/account_move_views.xml',
         'views/selection_message_views.xml',
-        'wizard/portal_share_views.xml',
+        # 'wizard/portal_share_views.xml',
         'wizard/whatsapp_send_message_views.xml',
 
     ],

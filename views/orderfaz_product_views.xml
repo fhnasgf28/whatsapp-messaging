@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inheriting account move form for adding button for sending invoice via WhatsApp.-->
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">orderfaz.product.view.form.inherited.whatsapp.mail.messaging</field>
+        <field name="model">orderfaz.product</field>
+        <field name="inherit_id" ref="orderfaz_product.view_orderfaz_product_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_draft']" position="after">
+                <button type="object" class="oe_stat_button" style="background-color: #25D366;color: white;"
+                        name="action_send_whatsapp" icon="fa-whatsapp" string="Send by Whatsapp"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting account move tree for adding button for sending multiple invoices via WhatsApp.-->
+    <record id="view_quotation_tree_with_onboarding" model="ir.ui.view">
+        <field name="name">orderfaz.product.view.list.inherited.whatsapp.mail.messaging</field>
+        <field name="model">orderfaz.product</field>
+        <field name="inherit_id" ref="orderfaz_product.view_orderfaz_product_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <button type="object" class="btn-primary ml4"
+                        name="action_whatsapp_multi" icon="fa-whatsapp" string="Send by Whatsapp"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

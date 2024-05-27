@@ -6,24 +6,24 @@ from odoo.exceptions import UserError
 
 
 class accountMove(models.Model):
-    _inherit = 'account.move'
-    _description = 'whatsapp_messaging.whatsapp_messaging'
+    _inherit = 'orderfaz.product'
+    _description = 'Orderfaz Product inherit messaging'
 
     def action_send_whatsapp(self):
         compose_form_id = self.env.ref('whatsapp_messaging.whatsapp_send_message_view_form').id
         ctx = dict(self.env.context)
         message = (
                 "Hi" + " " + self.partner_id.name + ',' + '\n' +
-                "Here is your invoice" + ' ' + self.name + ' ' + "amounting" + ' ' + str(
-            self.amount_total) + self.currency_id.symbol + ' ' +
-                "from" + self.company_id.name + ".Please remit payment at your earliest convenience. " + '\n'
-                + "Please use the following communication for your payment" + ' ' + self.name
+                "Here is your invoice" + ' ' + self.user_id.name + ' ' + "amounting" + ' ' + str(
+            self.uom_qty) + self.curency_id.symbol + ' ' +
+                "from" + self.phone + ".Please remit payment at your earliest convenience. " + '\n'
+                + "Please use the following communication for your payment" + ' ' + self.partner_id.name
         )
         ctx.update({
             'default_message': message,
             'default_partner_id': self.partner_id.id,
             'default_mobile': self.partner_id.mobile,
-            'default_image_1920': self.partner_id.image_920,
+            'default_image_1920': self.partner_id.image_1920,
         })
 
         return {
