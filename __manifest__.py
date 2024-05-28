@@ -26,6 +26,7 @@ Long description of module's purpose
         'views/sale_order_views.xml',
         'views/account_move_views.xml',
         'views/selection_message_views.xml',
+        # 'views/orderfaz_product_views.xml',
         # 'wizard/portal_share_views.xml',
         'wizard/whatsapp_send_message_views.xml',
 
